@@ -84,6 +84,7 @@ class ClientCall final
   void InternalUnref(const char*) override { WeakUnref(); }
 
   void Orphaned() override {
+    MaybeUnpublishFromParent();
     SourceDestructing();
     if (!saw_trailing_metadata_.load(std::memory_order_relaxed)) {
       CancelWithError(absl::CancelledError());
