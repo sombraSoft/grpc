@@ -58,11 +58,16 @@ def regenerate_lock(root, dest):
             os.path.join(workdir, REQUIREMENTS_LOCK),
         )
         cmd = [
-            "docker", "run", "--rm",
-            "-v", f"{workdir}:/work",
-            "-w", "/work",
+            "docker",
+            "run",
+            "--rm",
+            "-v",
+            f"{workdir}:/work",
+            "-w",
+            "/work",
             PYTHON_DOCKER_IMAGE,
-            "bash", "-c",
+            "bash",
+            "-c",
             "pip install --quiet --no-cache-dir pip-tools && "
             f"pip-compile --quiet --allow-unsafe --generate-hashes "
             f"--output-file={REQUIREMENTS_LOCK} {REQUIREMENTS_TXT} && "
