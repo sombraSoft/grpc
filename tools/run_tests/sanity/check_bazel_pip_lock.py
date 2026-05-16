@@ -27,9 +27,7 @@ LOCK_PATH = "requirements.bazel.lock"
 
 # A package-start line is column 0, name (with optional [extras]) followed by
 # ==version, possibly trailing whitespace and a backslash continuation.
-PACKAGE_START = re.compile(
-    r"^[A-Za-z][\w.\-]*(?:\[[\w,\-]+\])?==\S+\s*\\?\s*$"
-)
+PACKAGE_START = re.compile(r"^[A-Za-z][\w.\-]*(?:\[[\w,\-]+\])?==\S+\s*\\?\s*$")
 
 # A hash line is indented and matches --hash=sha256:<64 hex chars>.
 HASH_LINE = re.compile(r"^\s+--hash=sha256:[a-fA-F0-9]{64}\b")
